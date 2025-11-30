@@ -303,3 +303,36 @@
     </script>
 </body>
 </html>
+
+<body>
+
+    <!-- AUDIO -->
+    <audio id="bg-music" autoplay loop>
+        <source src="ipsi.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- TOMBOL PLAY / PAUSE -->
+    <div style="position: fixed; top: 20px; right: 20px; z-index: 999;">
+        <img id="music-btn" 
+             src="https://cdn-icons-png.flaticon.com/512/727/727245.png" 
+             alt="Play/Pause" 
+             style="width: 60px; height: 60px; cursor: pointer;">
+    </div>
+
+    <script>
+        const music = document.getElementById('bg-music');
+        const btn = document.getElementById('music-btn');
+
+        let isPlaying = true;
+
+        btn.addEventListener('click', () => {
+            if (isPlaying) {
+                music.pause();
+                btn.src = "https://cdn-icons-png.flaticon.com/512/751/751463.png"; // Ikon Play
+            } else {
+                music.play();
+                btn.src = "https://cdn-icons-png.flaticon.com/512/727/727245.png"; // Ikon Pause
+            }
+            isPlaying = !isPlaying;
+        });
+    </script>
